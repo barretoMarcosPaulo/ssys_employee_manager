@@ -8,4 +8,4 @@
 
 
 ## Instruções
-### Para acessar os endpoints criados é necessário criar um usuario e depois realizar login para receber o token de acesso. Estou usando JWT no projeto. Os enpoints de login e cadastro estão descritos na documentação. Caso teste no insomnia ou postman utilizar a autenticação Bearer Token em todos os endpoints.
+### Para acessar os endpoints criados é necessário criar um usuario e depois realizar login para receber o token de acesso. Estou usando JWT no projeto. Os endpoints de login e cadastro estão descritos na documentação. Caso teste no insomnia ou postman utilizar a autenticação Bearer Token em todos os endpoints.
