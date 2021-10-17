@@ -4,7 +4,7 @@
 
 
 ## Tecnologias
-### Foi adicionada uma documentação da api, utilizando a ferramente swagger. A documentação pode ser acessada na pagina home da aplicação(localhost:8000 se estiver no ambiente local)
+### Foi adicionada uma documentação da api, utilizando a ferramente swagger. A documentação pode ser acessada na pagina <a href="https://ssys-employee-manager-test.herokuapp.com/">home da aplicação</a>. O deploy foi realizado na plataforma Heroku.
 
 
 ## Instruções
