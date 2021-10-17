@@ -11,8 +11,8 @@ environ.Env.read_env(env_file)
 env = os.environ
 
 
-SECRET_KEY = env.get("SECRET_KEY")
-DEBUG = literal_eval(env.get("DEBUG"))
+SECRET_KEY = 'ab3gq-p(!b*orfx6+emg3*4d^46#t#ae0i7adj#zr^_7kz5top'
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
