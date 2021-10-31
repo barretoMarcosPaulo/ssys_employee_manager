@@ -7,3 +7,7 @@ class EmployeeSerializer(serializers.ModelSerializer):
         model = Employee
         fields = "__all__"
 
+
+class EmployeesSearchSerializer(serializers.Serializer):
+    search = serializers.CharField(required=True, max_length=156)
+

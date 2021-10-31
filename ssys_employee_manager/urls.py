@@ -23,9 +23,13 @@ router = routers.DefaultRouter()
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path("admin/", admin.site.urls),
     path("api/employees/", include("ssys_employee_manager.apps.employees.urls")),
     path("api/reports/", include("ssys_employee_manager.apps.reports.urls")),
     path("api/auth/", include("ssys_employee_manager.apps.accounts.urls")),
-    path('', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+    path(
+        "",
+        schema_view.with_ui("swagger", cache_timeout=0),
+        name="schema-swagger-ui",
+    ),
 ]
