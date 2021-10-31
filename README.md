@@ -1,11 +1,17 @@
-# SSYS Employee Manager
+# Employee Manager
 
-O teste foi realizado utilizando o framework web django junto com o django rest framework para a api. Também foi utilizado docker. O banco de dados da aplicação é o SQLite.
+O objetivo desse app é fornecer um meio para o gerenciamento de colaboradores de um empresa. A aplicação
+é um CRUD, permitindo criar, editar, listar e remover colaboradores. Para acessar essas funcionalidades, antes é necessário se cadastrar na plataforma e em seguida realizar login. Como bônus foram adicionadas páginas de relatórios e função de pesquisa. A aplicação foi dividade em back e front, ambos hospedados no heroku.
+
+# Backend da aplicação
+
+A api da aplicação foi construida utilizando o framework django e django rest framework. Está hospedada no heroku e pode ser acessada <a href="https://ssys-employee-manager-test.herokuapp.com/">aqui</a>. A página inicial conta com a documentação completa e interativa da API. Na maior parte da API é necessário estar autenticado, portanto realize login de forma interativa pelo swagger, Será retornado um token de acesso, deve ser adicionado em <strong>Available authorizations</strong> no formato <strong> Bearer [acess_token] </strong>
 
 
-## Tecnologias
-Foi adicionada uma documentação da api, utilizando a ferramente swagger. A documentação pode ser acessada na pagina <a href="https://ssys-employee-manager-test.herokuapp.com/">home da aplicação</a>. O deploy foi realizado na plataforma Heroku.
+# Frontend da aplicação
+
+Para facilitar o teste da API desenvolvi um simples frontend que consome todos os endpoints criados. O mesmo pode ser acessado por <a href="https://frontend-dafiti-test.herokuapp.com/">aqui</a>
 
 
-## Instruções
-Para acessar os endpoints criados é necessário criar um usuario e depois realizar login para receber o token de acesso. Estou usando JWT no projeto. Os endpoints de login e cadastro estão descritos na documentação. Caso teste no insomnia ou postman utilizar a autenticação Bearer Token em todos os endpoints.
+# Tecnologias
+As tecnologias utilizados foram django, django rest framework, docker, SQLite, ReactJs e heroku para hospedagem. Testes automatizados da API tbm foram implementados.
