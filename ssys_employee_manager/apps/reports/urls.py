@@ -5,9 +5,12 @@ from .viewsets import AgeReportViewSet, SalaryReportViewSet
 app_name = "reports"
 
 urlpatterns = [
-    path("employees/age/", AgeReportViewSet.as_view({'get':'get'}) ,),
-    path("employees/salary/", SalaryReportViewSet.as_view({'get':'get'}) ,),
+    path(
+        "employees/age/",
+        AgeReportViewSet.as_view({"get": "get"}),
+    ),
+    path(
+        "employees/salary/",
+        SalaryReportViewSet.as_view({"get": "get"}),
+    ),
 ]
-
-
-

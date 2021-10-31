@@ -10,4 +10,3 @@ class EmployeeSerializer(serializers.ModelSerializer):
 
 class EmployeesSearchSerializer(serializers.Serializer):
     search = serializers.CharField(required=True, max_length=156)
-

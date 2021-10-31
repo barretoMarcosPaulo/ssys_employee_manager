@@ -7,9 +7,10 @@ from django.db.models import Q
 from .models import Employee
 from .serializers import EmployeeSerializer, EmployeesSearchSerializer
 
+
 class EmployeeViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
-    
+
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
 
@@ -25,12 +26,12 @@ class EmployeesSearchViewSet(viewsets.GenericViewSet):
 
         employees = Employee.objects.filter(
             Q(
-                Q(name__icontains=search)|
-                Q(email__icontains=search)|
-                Q(department__icontains=search)
+                Q(name__icontains=search)
+                | Q(email__icontains=search)
+                | Q(department__icontains=search)
             )
         ).distinct()
-        
+
         return Response(
             EmployeeSerializer(employees, many=True).data,
             status=status.HTTP_200_OK,

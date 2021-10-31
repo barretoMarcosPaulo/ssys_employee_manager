@@ -8,7 +8,10 @@ router = DefaultRouter()
 router.register("", EmployeeViewSet, basename="employees")
 
 urlpatterns = [
-    path("search/", EmployeesSearchViewSet.as_view({'post':'post'}) ,),
+    path(
+        "search/",
+        EmployeesSearchViewSet.as_view({"post": "post"}),
+    ),
 ]
 
 urlpatterns += router.urls
