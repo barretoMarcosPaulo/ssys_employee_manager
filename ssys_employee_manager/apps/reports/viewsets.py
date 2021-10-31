@@ -10,7 +10,7 @@ from ssys_employee_manager.apps.employees.serializers import EmployeeSerializer
 
 class AgeReportViewSet(viewsets.GenericViewSet):
     permission_classes = [IsAuthenticated]
-        
+
     def get(self, request, *args, **kwargs):
         """
         <strong>Response samples:</strong><br>
@@ -39,19 +39,19 @@ class AgeReportViewSet(viewsets.GenericViewSet):
         </pre>
         """
         all_employees = Employee.objects.all()
-        
+
         if all_employees:
             current_year = timezone.now().year
-            younger_employee = Employee.objects.latest('birth_date')
-            older_employee = Employee.objects.earliest('birth_date')
-            
+            younger_employee = Employee.objects.latest("birth_date")
+            older_employee = Employee.objects.earliest("birth_date")
+
             age_younger_employee = current_year - younger_employee.birth_date.year
             age_older_employee = current_year - older_employee.birth_date.year
 
             datas = {
                 "youngerer": EmployeeSerializer(younger_employee).data,
                 "older": EmployeeSerializer(older_employee).data,
-                "average": (age_younger_employee + age_older_employee)//2
+                "average": (age_younger_employee + age_older_employee) // 2,
             }
 
             return Response(
@@ -65,12 +65,11 @@ class AgeReportViewSet(viewsets.GenericViewSet):
             )
 
 
-
 class SalaryReportViewSet(viewsets.GenericViewSet):
     permission_classes = [IsAuthenticated]
 
     def get(self, request, *args, **kwargs):
-        
+
         """
         <strong>Response samples:</strong><br>
         <pre>
@@ -98,16 +97,16 @@ class SalaryReportViewSet(viewsets.GenericViewSet):
         </pre>
         """
         all_employees = Employee.objects.all()
-        
+
         if all_employees:
-            highest_salary_employee = Employee.objects.latest('salary')
-            lowest_salary_employee = Employee.objects.earliest('salary')
-            salary_sum = (highest_salary_employee.salary + lowest_salary_employee.salary)
+            highest_salary_employee = Employee.objects.latest("salary")
+            lowest_salary_employee = Employee.objects.earliest("salary")
+            salary_sum = highest_salary_employee.salary + lowest_salary_employee.salary
 
             datas = {
                 "lowest": EmployeeSerializer(lowest_salary_employee).data,
                 "highest": EmployeeSerializer(highest_salary_employee).data,
-                "average": salary_sum // 2
+                "average": salary_sum // 2,
             }
 
             return Response(

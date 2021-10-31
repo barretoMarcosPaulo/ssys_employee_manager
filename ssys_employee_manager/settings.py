@@ -2,7 +2,7 @@ import os
 import environ
 from datetime import timedelta
 from ast import literal_eval
-
+import django_heroku
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -11,8 +11,8 @@ environ.Env.read_env(env_file)
 env = os.environ
 
 
-SECRET_KEY = env.get("SECRET_KEY")
-DEBUG = literal_eval(env.get("DEBUG"))
+SECRET_KEY = 'ab3gq-p(!b*orfx6+emg3*4d^46#t#ae0i7adj#zr^_7kz5top'
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -25,11 +25,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 'ssys_employee_manager.apps.accounts',
     'ssys_employee_manager.apps.accounts',
     'ssys_employee_manager.apps.employees',
     'ssys_employee_manager.apps.reports',
     # 'django.contrib.staticfiles',  # required for serving swagger ui's css/js files
     'drf_yasg',
+    'rest_framework',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -40,7 +43,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'ssys_employee_manager.urls'
 
@@ -97,6 +103,26 @@ SIMPLE_JWT = {
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=20),
 }
 
+
+SWAGGER_SETTINGS = {
+    "REFETCH_SCHEMA_WITH_AUTH": True,
+    'SECURITY_DEFINITIONS': {
+        'Bearer': {
+            'type': 'apiKey',
+            'name': 'Authorization',
+            'in': 'header'
+        }
+    },
+    
+    "APIS_SORTER": "alpha",
+    "DOC_EXPANSION": None,
+    "SHOW_REQUEST_HEADERS": True,
+    "SUPPORTED_SUBMIT_METHODS": ["get", "post", "put", "delete", "patch"],
+    "OPERATIONS_SORTER": "alpha",
+    "LOGIN_URL": "/login/",
+    "LOGOUT_URL": "/logout/",
+}
+
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
@@ -145,3 +171,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+django_heroku.settings(locals())
