@@ -5,12 +5,12 @@ O objetivo desse app é fornecer um meio para o gerenciamento de colaboradores d
 
 # Backend da aplicação
 
-A api da aplicação foi construida utilizando o framework django e django rest framework. Está hospedada no heroku e pode ser acessada <a href="https://ssys-employee-manager-test.herokuapp.com/">aqui</a>. A página inicial conta com a documentação completa e interativa da API. Na maior parte da API é necessário estar autenticado, portanto realize login de forma interativa pelo swagger, Será retornado um token de acesso, deve ser adicionado em <strong>Available authorizations</strong> no formato <strong> Bearer [acess_token] </strong>
+A api da aplicação foi construida utilizando o framework django e django rest framework. Está hospedada no heroku e pode ser acessada <a href="https://ssys-employee-manager-test.herokuapp.com/">AQUI</a>. A página inicial conta com a documentação completa e interativa da API. Na maior parte da API é necessário estar autenticado, portanto realize login de forma interativa pelo swagger, Será retornado um token de acesso, deve ser adicionado em <strong>Available authorizations</strong> no formato <strong> Bearer [acess_token] </strong>
 
 
 # Frontend da aplicação
 
-Para facilitar o teste da API desenvolvi um simples frontend que consome todos os endpoints criados. O mesmo pode ser acessado por <a href="https://frontend-dafiti-test.herokuapp.com/">aqui</a>
+Para facilitar o teste da API desenvolvi um simples frontend que consome todos os endpoints criados. O mesmo pode ser acessado por <a href="https://frontend-dafiti-test.herokuapp.com/">AQUI</a>. O repositorio pode ser acessado nesse <a href="https://github.com/barretoMarcosPaulo/frontend">LINK</a>.
 
 
 # Tecnologias
